@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "tsc":"tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/diego123cr/beta/issues"
   },
-  "homepage": "https://github.com/diego123cr/beta#readme"
+  "homepage": "https://github.com/diego123cr/beta#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
 }
