@@ -15,34 +15,24 @@ export const getRolPorId = async ( req:Request, res:Response) :Promise<Response>
 }
 
 export const crearRol = async ( req:Request, res:Response) :Promise<Response>  => {
-   const nombre = req.body.nombre
-   const salario = req.body.salario
-   
-   if(  salario > 0 ){
-    await  pool.query('INSERT INTO rol ( nombre, salario ) VALUES ($1, $2)', [nombre, salario]);
+    const nombre = req.body.nombre
+    const salarioMinimo = req.body.salarioMinimo
+    const salarioMaximo = req.body.salarioMaximo
+
+    await  pool.query('INSERT INTO rol ( nombre, salario_minimo, salario_maximo ) VALUES ($1, $2, $3)', 
+        [nombre, salarioMinimo, salarioMaximo]);
     return res.json({'Estado': 'Rol creado'})
-   } else{
-    return res.json({'Estado': 'Rol no creado, salario invalido'})
-   }
 
 }
 
 export const modificarSalarioRol = async ( req:Request, res:Response) :Promise<Response>  => {
     const id = req.body.id
-    const salario = req.body.salario
+    const salarioMinimo = req.body.salarioMinimo
+    const salarioMaximo = req.body.salarioMaximo
 
-    if(  esSalarioValido( salario ) ){
-        await  pool.query('UPDATE TABLE rol SET salario = $2 where id = $1;', [id,salario]);
-        return res.json({'Estado': 'Salario del rol modificado'})
-    } else{
-        return res.json({'Estado': 'Rol no modificado, salario invalido'})
-    }
+    await  pool.query('UPDATE rol SET salario_minimo = $2, salario_maximo = $3  where id = $1;', 
+        [id, salarioMinimo, salarioMaximo]);
+    return res.json({'Estado': 'Salario del rol modificado'})
+
  }
 
- function esSalarioValido(sal: number ): boolean {
-    var esValido = false 
-    if( sal > 0 ){
-        esValido = true
-    }
-    return esValido;
-  }
