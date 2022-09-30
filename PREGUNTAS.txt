@@ -1,0 +1,43 @@
+¿Puede usar GET en lugar de PUT para crear un nuevo recurso, por qué o por qué no? 
+Sí se puede, pero no es adecuado. Primero desde un punto de vista semántico el GET es para obtener recursos no para crearlos, los parámetros tendrían que ir plain en el URI, consideraría que no es una buena práctica de diseño.
+
+
+
+¿Qué son pruebas de integración?
+Son las pruebas realizadas a los diferentes módulos / componentes de un sistema en desarrollo para validar los requerimientos funcionales y no funcionales de forma integral de las piezas de software. 
+
+
+
+¿Cuál es la diferencia entre HTTP y HTTPS?
+Son dos protocolos para la transferencia (comunicación) de datos entre un cliente y un servidor, que utilizan un sería de métodos (GET, POST, etc) para hacer solicitudes y dar respuesta a dicha solicitudes de información. 
+
+
+
+¿Qué es un API y cuáles funciones tiene?
+Un API es una estructura estándar que define cómo se puede comunicar con una pieza de software. Donde la pieza de software puede ser un programa o capa desarrollada por uno mismo como programador que ocupa comunicarse con otro parte de un programa, un software que requiere comunicarse con otro; o un Framework como Java al cual ocupamos comunicarnos para usarlo.
+
+
+
+¿Qué es un commit y un rollback?
+El commit en Git  se puede ver como una unidad que representa una sería de “mínima” cambios que se estructuran en un repositorio. El rollback (git revert) puede verse como un puntero a un commit una forma de hacer CRTL + Z. 
+
+
+
+¿Qué es un índice y cuáles tipos existen?
+En el contexto de una base de datos es una estructura de metadatos que sirve para indezar los datos en una tabla para mejorar el rendimiento, en particular en PostgreSQL usan varios tipos de algoritmos algunos son hash, btree, bitmap, entre otros su uso depende de diferentes cuestiones como por ejemplo si la tabla va a tener mucha lectura / escritura.  
+
+
+
+¿Diferencia procedimiento almacenado y una función?
+Desde un punto de vista semántico un procedimiento almacenado es una funcionalidad más flexible una función es una pieza más específica 
+
+
+
+¿Qué es un ORM?
+Object Relational Mapping, un mapeador de objetos permite de forma más sencilla trabajar desde un lenguaje de alto nivel oriendato a objetos con los registros de la BD que representan dichos objectos: ejemplo tabla persona -> objecto persona
+
+
+
+¿Cómo encontrarías las consultas que más consumen en una aplicación?
+Dependería de muchos factores, por ejemplo si es una aplicación en producción lo primero y más importante es consultar al usuario final “cuando se pone lento el programa”  y partir de ahí con un análisis usando EXPLAIN de las consultas. 
+Si es algo más general se podría utilizar los logs específicos, esto va a depender de cada motor de BD y habría así como las herramientas de health que brinde el DMBS.
